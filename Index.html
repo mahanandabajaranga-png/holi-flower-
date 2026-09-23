@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Holi 🌸</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at center,#fffaf5,#f8dfe7,#d9d9ee);
+    font-family:Georgia,serif;
+}
+
+.scene{
+    width:100%;
+    max-width:500px;
+    height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* 🌸 FLOWER */
+
+.flower{
+    position:absolute;
+    top:27%;
+    width:180px;
+    height:180px;
+    cursor:pointer;
+    transition:1s;
+}
+
+.petal{
+    position:absolute;
+    width:70px;
+    height:105px;
+    left:55px;
+    top:35px;
+
+    border-radius:70% 70% 45% 45%;
+
+    background:
+    radial-gradient(circle at 30% 20%,
+    #ffffff,
+    #ffb5c9 45%,
+    #c9577b);
+
+    box-shadow:
+    inset -7px -10px 15px rgba(100,30,50,.2),
+    0 5px 15px rgba(100,40,70,.15);
+
+    transform-origin:35px 55px;
+
+    transition:
+    transform 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.petal:nth-child(1){transform:rotate(0deg)}
+.petal:nth-child(2){transform:rotate(45deg)}
+.petal:nth-child(3){transform:rotate(90deg)}
+.petal:nth-child(4){transform:rotate(135deg)}
+.petal:nth-child(5){transform:rotate(180deg)}
+.petal:nth-child(6){transform:rotate(225deg)}
+.petal:nth-child(7){transform:rotate(270deg)}
+.petal:nth-child(8){transform:rotate(315deg)}
+
+/* Open petals */
+
+.flower.open .petal:nth-child(1){
+transform:rotate(0deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(2){
+transform:rotate(45deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(3){
+transform:rotate(90deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(4){
+transform:rotate(135deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(5){
+transform:rotate(180deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(6){
+transform:rotate(225deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(7){
+transform:rotate(270deg) translateY(-48px)
+}
+
+.flower.open .petal:nth-child(8){
+transform:rotate(315deg) translateY(-48px)
+}
+
+/* Center */
+
+.center{
+    position:absolute;
+    width:52px;
+    height:52px;
+    left:64px;
+    top:64px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#fff7a0,#efbd42,#a96b20);
+
+    box-shadow:0 0 25px rgba(255,190,50,.6);
+
+    z-index:10;
+
+    transition:1s;
+}
+
+.flower.open .center{
+    transform:scale(1.15);
+}
+
+/* Hint */
+
+.hint{
+    position:absolute;
+    top:55%;
+    color:#9b6875;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:2px;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:.4}
+    50%{opacity:1}
+}
+
+/* MESSAGE */
+
+.message{
+    position:absolute;
+    top:57%;
+    width:90%;
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:1.5s;
+
+    pointer-events:none;
+}
+
+.message.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.message h1{
+    font-size:34px;
+    color:#754052;
+    margin-bottom:15px;
+}
+
+.line{
+    width:70px;
+    height:1px;
+    background:#b98792;
+    margin:auto;
+    margin-bottom:18px;
+}
+
+.message p{
+    color:#6e555c;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.highlight{
+    color:#a04f69;
+    font-weight:bold;
+}
+
+/* 🍫 CHOCOLATE */
+
+.chocolate{
+    position:absolute;
+    bottom:8%;
+    opacity:0;
+    transform:translateY(80px) scale(.5);
+
+    transition:
+    opacity 1s,
+    transform 1.2s;
+
+    pointer-events:none;
+}
+
+.chocolate.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+.wrapper{
+    width:180px;
+    height:80px;
+    border-radius:10px;
+
+    background:
+    linear-gradient(135deg,#7b1fa2,#4a0870,#8e24aa);
+
+    box-shadow:
+    0 12px 25px rgba(60,20,70,.3);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    animation:chocoFloat 2s ease-in-out infinite;
+}
+
+.wrapper::before{
+    content:"";
+    position:absolute;
+    left:10px;
+    right:10px;
+    top:8px;
+    bottom:8px;
+    border:2px solid rgba(255,255,255,.35);
+    border-radius:6px;
+}
+
+.wrapper span{
+    color:white;
+    font-family:Georgia,serif;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:1px;
+    z-index:2;
+}
+
+.small{
+    position:absolute;
+    bottom:3px;
+    color:#eee;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+@keyframes chocoFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+/* Floating flowers */
+
+.floating{
+    position:absolute;
+    top:-30px;
+    opacity:.5;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- Floating petals -->
+    <div class="floating" style="left:10%;animation-duration:8s">🌸</div>
+    <div class="floating" style="left:25%;animation-duration:11s">✿</div>
+    <div class="floating" style="left:70%;animation-duration:9s">🌸</div>
+    <div class="floating" style="left:88%;animation-duration:12s">✿</div>
+
+    <!-- FLOWER -->
+    <div class="flower" id="flower">
+
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+
+        <div class="center"></div>
+    </div>
+
+    <div class="hint" id="hint">
+        TOUCH THE FLOWER ✦
+    </div>
+
+    <!-- MESSAGE -->
+    <div class="message" id="message">
+
+        <h1>My Sweet Heart, Holi 🌸</h1>
+
+        <div class="line"></div>
+
+        <p>
+            If your mood is a little low today,
+            remember one thing...
+            <br><br>
+
+            <span class="highlight">
+            Bad days are temporary,
+            but your beautiful smile deserves to stay.
+            </span>
+
+            <br><br>
+
+            Take a deep breath, smile a little,
+            and let today become a better day. ✨
+
+            <br><br>
+
+            You deserve peaceful moments,
+            happy thoughts and lots of reasons to smile. 🌷
+        </p>
+
+    </div>
+
+    <!-- CHOCOLATE -->
+    <div class="chocolate" id="chocolate">
+
+        <div class="wrapper">
+            <span>DAIRY MILK</span>
+            <div class="small">A LITTLE SWEETNESS</div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const flower = document.getElementById("flower");
+const message = document.getElementById("message");
+const chocolate = document.getElementById("chocolate");
+const hint = document.getElementById("hint");
+
+flower.addEventListener("click", function(){
+
+    flower.classList.add("open");
+
+    hint.style.opacity = "0";
+
+    setTimeout(function(){
+        message.classList.add("show");
+    },900);
+
+    setTimeout(function(){
+        chocolate.classList.add("show");
+    },4500);
+
+});
+
+</script>
+
+</body>
+</html>
